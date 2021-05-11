@@ -110,5 +110,26 @@ while True:
             
             cv2.putText(frame, "Volume UP", (5, 50), cv2.FONT_HERSHEY_SIMPLEX, 2,(0,0,255), 2)
         elif count_defects == 3:
-            p.…
+            p.press("down")
+            
+            cv2.putText(frame, "Volume Down", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2,(0,0,255), 2)
+        elif count_defects == 4:
+            p.press("right")
+            
+            cv2.putText(frame, "Forward", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2,(0,0,255), 2)
+        else:
+            pass
+           
+    except:
+        pass
+        
+    cv2.imshow("Thresh", thresh)
+  
+    cv2.imshow("filter==",filtr)
+    cv2.imshow("Result", frame)
 
+    key = cv2.waitKey(25) &0xFF    
+    if key == ord('q'): 
+        break
+capture.release()
+cv2.destroyAllWindows()
